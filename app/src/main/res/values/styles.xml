@@ -1,0 +1,9 @@
+
+    <resources>
+        <style name="MyButtonStyle">
+            <item name="android:layout_width">80dp</item>
+            <item name="android:layout_height">80dp</item>
+            <item name="android:background">@drawable/button_background</item>
+            <!-- Add more attributes to style your button -->
+        </style>
+    </resources>
