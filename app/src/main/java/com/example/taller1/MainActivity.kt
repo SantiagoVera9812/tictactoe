@@ -3,69 +3,39 @@ package com.example.taller1
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import android.widget.SpinnerAdapter
-import android.widget.TextView
 import android.widget.Toast
 import com.example.taller1.databinding.ActivityMainBinding
-import com.google.gson.Gson
+import com.example.taller1.modelo.Paises
 import com.example.taller1.modelo.Saludos
-import org.json.JSONArray
+import com.example.taller1.modelo.Hello
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
-
-    private lateinit var spinner: Spinner
-    private lateinit var dataAdapter: ArrayAdapter<String>
     private lateinit var binding: ActivityMainBinding
-    private lateinit var saludosList: List<Saludos>
+    private lateinit var paisList: List<Paises>
+    private lateinit var helloList: List<Hello>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        saludosList = loadSaludosAct()
+        paisList = loadPaisesAct()
+        helloList = loadHelloAct()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-            spinner = Spinner(this, R.id.spinner);
+            var spinner : Spinner = findViewById(R.id.spinner)
 
-            if (saludosList != null && saludosList.count() > 0) {
-                Log.d("saludosListState", "saludosList has ${saludosList.count()} items.")
-            } else {
-                Log.d("saludosList", "saludosList has no items.")
-            }
+        val namesList = paisList.map { it.nombre_pais}
+        val idiomas = helloList.map{it.language}
+            val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, namesList)
 
-        val namesList = saludosList.map { it.name }
-            val adapter = ArrayAdapter(baseContext, android.R.layout.simple_spinner_item, namesList)
-
-            if (adapter != null && adapter.count > 0) {
-                Log.d("adapter", "adapter has ${adapter.count} items.")
-            } else {
-                Log.d("adapter", "adapter has no items.")
-            }
-
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-        Log.d("AdapterSetup", "Before setting adapter")
-        val adapterCustom = adapterCustom(this,namesList)
-        if (adapterCustom != null && adapterCustom.count > 0) {
-        Log.d("adapterCostum", "adapter has ${adapterCustom.count} items.")
-    } else {
-        Log.d("adapterCustom", "adapter has no items.")
-    }
-        Log.d("adapterCostum", "adapterCostum has no items.")
         spinner.adapter = adapter
-        Log.d("AdapterSetup", "After setting adapter, ")
 
-            if (spinner.adapter != null && spinner.adapter.count > 0) {
-                Log.d("SpinnerState", "Spinner has ${spinner.adapter.count} items.")
-            } else {
-                Log.d("SpinnerState", "Spinner has no items.")
-            }
+
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
@@ -73,9 +43,18 @@ class MainActivity : AppCompatActivity() {
                     position: Int,
                     id: Long
                 ) {
-                    val selectedSaludo = saludosList[position]
-                    val greeting = selectedSaludo.greetigs
-                    Toast.makeText(applicationContext, greeting, Toast.LENGTH_LONG).show()
+                    val selectedSaludo = paisList[position]
+                    val languagePais = selectedSaludo.language
+                    for(i in idiomas.indices){
+                        if(idiomas[i] == languagePais){
+
+                            val hellomsg = helloList[i].hello
+                            Toast.makeText(this@MainActivity, hellomsg,Toast.LENGTH_SHORT).show()
+                            break
+                        }
+
+                    }
+
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -83,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-        adapterCustom.notifyDataSetChanged()
+
 
         try {
             binding.lenguajes.setOnClickListener {
@@ -102,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadSaludosAct(): List<Saludos> {
+     fun loadSaludosAct(): List<Saludos> {
 
         var saludos = mutableListOf<Saludos>()
         var json_string =
@@ -119,8 +98,52 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        return saludos
 
+    }
 
+    fun loadPaisesAct(): List<Paises>{
+
+        var saludos = mutableListOf<Paises>()
+
+        var json_string = this.assets.open("paises.json").bufferedReader().use{it.readText()}
+
+        var json = JSONObject(json_string)
+        var paises = json.getJSONArray("paises")
+        for(i in 0 until paises.length()){
+
+            var jsonObject = paises.getJSONObject(i)
+            var capital = jsonObject.getString("capital")
+            var nombre_pais = jsonObject.getString("nombre_pais")
+            var nombre_pais_int = jsonObject.getString("nombre_pais_int")
+            var siglas = jsonObject.getString("sigla")
+            var language = jsonObject.getString("language")
+            var pais = Paises(capital,nombre_pais,nombre_pais_int,siglas,language)
+
+            saludos.add(pais)
+        }
+
+        return saludos
+    }
+
+    fun loadHelloAct(): List<Hello> {
+
+        val saludos = mutableListOf<Hello>()
+        var json_string = this.assets.open("hello.json").bufferedReader().use{it.readText()}
+
+        var json = JSONObject(json_string)
+        var hellos = json.getJSONArray("hello")
+        for(i in 0 until hellos.length()) {
+
+            var jsonObject = hellos.getJSONObject(i)
+            var language = jsonObject.getString("language")
+            var hello = jsonObject.getString("hello")
+
+            var hi = Hello(language, hello)
+
+            saludos.add(hi)
+
+        }
         return saludos
 
     }

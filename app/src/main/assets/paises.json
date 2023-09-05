@@ -3,151 +3,176 @@
     { "capital" : "Berlin",
       "nombre_pais" : "Alemania",
       "nombre_pais_int" : "Germany",
-      "sigla" : "DE"
+      "sigla" : "DE",
+      "language": "German"
     },
 
     { "capital" : "Buenos Aires",
       "nombre_pais" : "Argentina",
       "nombre_pais_int" : "Argentina",
-      "sigla" : "AR"
+      "sigla" : "AR",
+      "language": "Spanish"
     },
 
     { "capital" : "Canberra",
       "nombre_pais" : "Australia",
       "nombre_pais_int" : "Australia",
-      "sigla" : "AU"
+      "sigla" : "AU",
+      "language": "English"
     },
     
     { "capital" : "Viena",
       "nombre_pais" : "Austria",
       "nombre_pais_int" : "Austria",
-      "sigla" : "AT"
+      "sigla" : "AT",
+      "language": "German"
     },
 
     { "capital" : "Bruselas",
       "nombre_pais" : "Bélgica",
       "nombre_pais_int" : "Belgium",
-      "sigla" : "BE"
+      "sigla" : "BE",
+      "language": "Dutch"
     },
 
     { "capital" : "La Paz",
       "nombre_pais" : "Bolívia",
       "nombre_pais_int" : "Bolivia",
-      "sigla" : "BO"
+      "sigla" : "BO",
+      "language": "Spanish"
     },
 
     { "capital" : "Brasilia",
       "nombre_pais" : "Brasil",
       "nombre_pais_int" : "Brazil",
-      "sigla" : "BR"
+      "sigla" : "BR",
+      "language": "Portuguese"
+
     },
 
 
     { "capital" : "Santiago",
       "nombre_pais" : "Chile",
       "nombre_pais_int" : "Chile",
-      "sigla" : "CL"
+      "sigla" : "CL",
+      "language": "Spanish"
     },
 
     { "capital" : "Bogotá",
       "nombre_pais" : "Colombia",
       "nombre_pais_int" : "Colombia",
-      "sigla" : "CO"
+      "sigla" : "CO",
+      "language": "Spanish"
     },
 
 
     { "capital" : "La Habana",
       "nombre_pais" : "Cuba",
       "nombre_pais_int" : "Cuba",
-      "sigla" : "CU"
+      "sigla" : "CU",
+      "language": "Spanish"
     },
 
 
     { "capital" : "Quito",
       "nombre_pais" : "Ecuador",
       "nombre_pais_int" : "Ecuador",
-      "sigla" : "EC"
+      "sigla" : "EC",
+      "language": "Spanish"
     },
 
     { "capital" : "Madrid",
       "nombre_pais" : "España",
       "nombre_pais_int" : "Spain",
-      "sigla" : "ES"
+      "sigla" : "ES",
+      "language": "Spanish"
     },
     { "capital" : "Washington",
       "nombre_pais" : "Estados Unidos",
       "nombre_pais_int" : "United States",
-      "sigla" : "US"
+      "sigla" : "US",
+      "language": "English"
     },
 
     { "capital" : "Paris",
       "nombre_pais" : "Francia",
       "nombre_pais_int" : "France",
-      "sigla" : "FR"
+      "sigla" : "FR",
+      "language": "Haitian Creole"
     },
 
     { "capital" : "Londres",
       "nombre_pais" : "Reino Unido",
       "nombre_pais_int" : "United Kingdom",
-      "sigla" : "GB"
+      "sigla" : "GB",
+      "language": "English"
     },
 
     { "capital" : "Atenas",
       "nombre_pais" : "Grecia",
       "nombre_pais_int" : "Greece",
-      "sigla" : "GR"
+      "sigla" : "GR",
+      "language": "Greek"
     },
 
     { "capital" : "Amsterdam",
       "nombre_pais" : "Holanda",
       "nombre_pais_int" : "Netherlands",
-      "sigla" : "NL"
+      "sigla" : "NL",
+      "language": "Dutch"
     },
 
     { "capital" : "Budapest",
       "nombre_pais" : "Hungria",
       "nombre_pais_int" : "Hungary",
-      "sigla" : "HU"
+      "sigla" : "HU",
+      "language": "Hungarian"
     },
-
 
     { "capital" : "Dublin",
       "nombre_pais" : "Irlanda",
       "nombre_pais_int" : "Ireland",
-      "sigla" : "IE"
+      "sigla" : "IE",
+      "language": "English"
     },
     { "capital" : "Reykjavik",
       "nombre_pais" : "Islandia",
       "nombre_pais_int" : "Iceland",
-      "sigla" : "IS"
+      "sigla" : "IS",
+      "language": "Icelandic"
     },
     { "capital" : "Jerusalen",
       "nombre_pais" : "Israel",
       "nombre_pais_int" : "Israel",
-      "sigla" : "IL"
+      "sigla" : "IL",
+      "language": "Irish"
     },
     { "capital" : "Roma",
       "nombre_pais" : "Italia",
       "nombre_pais_int" : "Italy",
-      "sigla" : "IT"
+      "sigla" : "IT",
+      "language": "Italian"
     },
 
     { "capital" : "Tokyo",
       "nombre_pais" : "Japón",
       "nombre_pais_int" : "Japan",
-      "sigla" : "JP"
+      "sigla" : "JP",
+      "language": "Japanese"
     },
 
     { "capital" : "Montevideo",
       "nombre_pais" : "Uruguay",
       "nombre_pais_int" : "Uruguay",
-      "sigla" : "UY"
+      "sigla" : "UY",
+      "language": "Spanish"
     },
 
     { "capital" : "Caracas",
       "nombre_pais" : "Venezuela",
       "nombre_pais_int" : "Venezuela",
-      "sigla" : "VE"
+      "sigla" : "VE",
+      "language": "Spanish"
     }
   ]
 }
